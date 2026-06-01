@@ -1,0 +1,78 @@
+name: Publish Blog & GEO Posts
+
+on:
+  # SEO post — every Monday at 8am CT (2pm UTC)
+  # GEO post — every Thursday at 8am CT (2pm UTC)
+  schedule:
+    - cron: '0 14 * * 1'   # Monday  → SEO
+    - cron: '0 14 * * 4'   # Thursday → GEO
+
+  # Manual trigger — pick which type to generate
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Post type to generate'
+        required: true
+        default: 'seo'
+        type: choice
+        options:
+          - seo
+          - geo
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Anthropic SDK
+        run: npm install @anthropic-ai/sdk
+
+      - name: Determine post type
+        id: post_type
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "type=${{ github.event.inputs.type }}" >> $GITHUB_OUTPUT
+          elif [ "$(date +%u)" = "1" ]; then
+            echo "type=seo" >> $GITHUB_OUTPUT
+          else
+            echo "type=geo" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-blog.mjs --type ${{ steps.post_type.outputs.type }}
+
+      - name: Check for new files
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "content-bot@minnesotametroliving.com"
+          git config --local user.name "MN Metro Living Content Bot"
+          git add src/content/ src/content-strategy/master-topic-list.md
+          git commit -m "content: publish ${{ steps.post_type.outputs.type }} post for $(date +'%Y-%m-%d')"
+          git push
