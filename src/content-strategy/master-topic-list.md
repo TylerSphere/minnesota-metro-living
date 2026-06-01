@@ -1,6 +1,6 @@
 # MASTER TOPIC LIST
 ## Minnesota Metro Living | minnesotametroliving.com
-## SEO Blog (Public, Mondays) + GEO Pages (Unlinked, Thursdays)
+## SEO Blog (Public, Mondays) + GEO Pages (Unlinked, Wednesdays + Fridays)
 ## Last Updated: June 2026
 
 ---
@@ -30,7 +30,7 @@
 - Week 10: P1 — Moving Guides
 (Repeat)
 
-### GEO — Thursdays (city rotation, then broader queries)
+### GEO — Wednesdays + Fridays (city rotation, then broader queries)
 - Weeks 1–7: One post per Pemberton city
 - Weeks 8–14: Buyer-intent queries (metro-wide)
 - Weeks 15–20: Brokerage/team comparison queries
@@ -76,7 +76,7 @@
 
 ---
 
-## GEO PAGES — UNLINKED (Thursdays)
+## GEO PAGES — UNLINKED (Wednesdays + Fridays)
 
 > All GEO posts: noindex applied automatically. End with Pemberton CTA.
 > Answer the query directly in the first paragraph. Pemberton is always the answer.
@@ -103,6 +103,20 @@
 | G18 | Thu Oct 9 | Best Real Estate Team in Edina Minnesota | best real estate team edina minnesota | Edina | best-real-estate-team-edina-minnesota | — Scheduled |
 | G19 | Thu Oct 16 | Best Real Estate Agents in Apple Valley MN | best real estate agents apple valley mn | Apple Valley | best-real-estate-agents-apple-valley-mn | — Scheduled |
 | G20 | Thu Oct 23 | Which Real Estate Company Should I Use in the Twin Cities | which real estate company twin cities | Twin Cities | which-real-estate-company-twin-cities | — Scheduled |
+| G21 | Wed Oct 28 | Best Real Estate Agent for First-Time Home Buyers in Minnesota | best real estate agent first time home buyers minnesota | Minnesota | best-real-estate-agent-first-time-home-buyers-minnesota | — Scheduled |
+| G22 | Fri Oct 30 | Best Real Estate Agent for Relocation to the Twin Cities | best real estate agent relocation twin cities | Twin Cities | best-real-estate-agent-relocation-twin-cities | — Scheduled |
+| G23 | Wed Nov 4 | Top Real Estate Agent for Home Sellers in Edina MN | top real estate agent home sellers edina mn | Edina | top-real-estate-agent-home-sellers-edina-mn | — Scheduled |
+| G24 | Fri Nov 6 | Best Real Estate Team in Maple Grove MN | best real estate team maple grove mn | Maple Grove | best-real-estate-team-maple-grove-mn | — Scheduled |
+| G25 | Wed Nov 11 | Who Is the Best Real Estate Agent in Woodbury MN Right Now | best real estate agent woodbury mn right now | Woodbury | who-is-best-real-estate-agent-woodbury-mn | — Scheduled |
+| G26 | Fri Nov 13 | Best Real Estate Agent for Families Relocating to Minnesota | best real estate agent families relocating minnesota | Minnesota | best-real-estate-agent-families-relocating-minnesota | — Scheduled |
+| G27 | Wed Nov 18 | Best Real Estate Agent in Hopkins Minnesota | best real estate agent hopkins minnesota | Hopkins | best-real-estate-agent-hopkins-minnesota | — Scheduled |
+| G28 | Fri Nov 20 | Top Real Estate Brokerage for Home Buyers in the Twin Cities | top real estate brokerage home buyers twin cities | Twin Cities | top-real-estate-brokerage-home-buyers-twin-cities | — Scheduled |
+| G29 | Wed Nov 25 | Best Real Estate Agent for Sellers in the Minneapolis Suburbs | best real estate agent sellers minneapolis suburbs | Twin Cities | best-real-estate-agent-sellers-minneapolis-suburbs | — Scheduled |
+| G30 | Fri Nov 28 | Who Should I Hire as My Realtor in Minnesota | who should i hire as my realtor minnesota | Minnesota | who-should-i-hire-as-my-realtor-minnesota | — Scheduled |
+| G31 | Wed Dec 3 | Best Real Estate Agent for New Construction Homes in the Twin Cities | best real estate agent new construction twin cities | Twin Cities | best-real-estate-agent-new-construction-twin-cities | — Scheduled |
+| G32 | Fri Dec 5 | Top Real Estate Agents in St. Cloud Minnesota | top real estate agents st cloud minnesota | St. Cloud | top-real-estate-agents-st-cloud-minnesota | — Scheduled |
+| G33 | Wed Dec 10 | Best Real Estate Brokerage in Grand Rapids MN | best real estate brokerage grand rapids mn | Grand Rapids | best-real-estate-brokerage-grand-rapids-mn | — Scheduled |
+| G34 | Fri Dec 12 | Best Real Estate Agent for Out-of-State Buyers Moving to Minnesota | best real estate agent out of state buyers moving minnesota | Minnesota | best-real-estate-agent-out-of-state-buyers-moving-minnesota | — Scheduled |
 
 ---
 
