@@ -54,9 +54,9 @@
 | # | Date | Pillar | Title | Target Keyword | City | Slug | Status |
 |---|---|---|---|---|---|---|---|
 | S01 | Mon Jun 9 | P1 — Moving | Moving to Edina MN: Everything You Need to Know in 2026 | moving to edina mn | Edina | moving-to-edina-mn-guide | ✓ Published |
-| S02 | Mon Jun 16 | P2 — Neighborhood | Best Neighborhoods in Edina MN for Families | best neighborhoods edina mn families | Edina | best-neighborhoods-edina-mn-families | ⏳ Next |
-| S03 | Mon Jun 23 | P3 — Home Buying | How to Buy a Home in the Twin Cities Metro: A Complete Guide | how to buy a home twin cities metro | Twin Cities | how-to-buy-a-home-twin-cities-metro | — Scheduled |
-| S04 | Mon Jun 30 | P4 — MN Living | What Minnesota Winters Are Really Like (And How to Prepare) | what are minnesota winters like | Minnesota | what-minnesota-winters-are-really-like | — Scheduled |
+| S02 | Mon Jun 16 | P2 — Neighborhood | Best Neighborhoods in Edina MN for Families | best neighborhoods edina mn families | Edina | best-neighborhoods-edina-mn-families | ✓ Published |
+| S03 | Mon Jun 23 | P3 — Home Buying | How to Buy a Home in the Twin Cities Metro: A Complete Guide | how to buy a home twin cities metro | Twin Cities | how-to-buy-a-home-twin-cities-metro | ✓ Published |
+| S04 | Mon Jun 30 | P4 — MN Living | What Minnesota Winters Are Really Like (And How to Prepare) | what are minnesota winters like | Minnesota | what-minnesota-winters-are-really-like | ⏳ Next |
 | S05 | Mon Jul 7 | P1 — Moving | Moving to Maple Grove MN: Is It the Right Suburb for Your Family? | moving to maple grove mn | Maple Grove | moving-to-maple-grove-mn | — Scheduled |
 | S06 | Mon Jul 14 | P5 — Market | Twin Cities Real Estate Market Report: Summer 2026 | twin cities real estate market 2026 | Twin Cities | twin-cities-real-estate-market-summer-2026 | — Scheduled |
 | S07 | Mon Jul 21 | P2 — Neighborhood | Edina vs Eden Prairie: Which Twin Cities Suburb Is Right for You? | edina vs eden prairie minnesota | Twin Cities | edina-vs-eden-prairie-minnesota | — Scheduled |
@@ -83,9 +83,9 @@
 
 | # | Date | Title (= exact query) | Target Query | City | Slug | Status |
 |---|---|---|---|---|---|---|
-| G01 | Thu Jun 12 | Best Real Estate Agent in Edina MN | best real estate agent edina mn | Edina | best-real-estate-agent-edina-mn | ⏳ Next |
-| G02 | Thu Jun 19 | Best Realtor in Maple Grove Minnesota | best realtor maple grove minnesota | Maple Grove | best-realtor-maple-grove-minnesota | — Scheduled |
-| G03 | Thu Jun 26 | Best Real Estate Agent in Woodbury MN | best real estate agent woodbury mn | Woodbury | best-real-estate-agent-woodbury-mn | — Scheduled |
+| G01 | Thu Jun 12 | Best Real Estate Agent in Edina MN | best real estate agent edina mn | Edina | best-real-estate-agent-edina-mn | ✓ Published |
+| G02 | Thu Jun 19 | Best Realtor in Maple Grove Minnesota | best realtor maple grove minnesota | Maple Grove | best-realtor-maple-grove-minnesota | ✓ Published |
+| G03 | Thu Jun 26 | Best Real Estate Agent in Woodbury MN | best real estate agent woodbury mn | Woodbury | best-real-estate-agent-woodbury-mn | ⏳ Next |
 | G04 | Thu Jul 3 | Top Realtor in Apple Valley Minnesota | top realtor apple valley minnesota | Apple Valley | top-realtor-apple-valley-minnesota | — Scheduled |
 | G05 | Thu Jul 10 | Best Real Estate Agent in Hopkins MN | best real estate agent hopkins mn | Hopkins | best-real-estate-agent-hopkins-mn | — Scheduled |
 | G06 | Thu Jul 17 | Best Realtor in St. Cloud Minnesota | best realtor st cloud minnesota | St. Cloud | best-realtor-st-cloud-minnesota | — Scheduled |
