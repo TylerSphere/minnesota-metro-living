@@ -1,11 +1,13 @@
 name: Publish Blog & GEO Posts
 
 on:
-  # SEO post — every Monday at 8am CT (2pm UTC)
-  # GEO post — every Thursday at 8am CT (2pm UTC)
+  # SEO post  — every Monday    at 8am CT (2pm UTC)
+  # GEO post  — every Wednesday at 8am CT (2pm UTC)
+  # GEO post  — every Friday    at 8am CT (2pm UTC)
   schedule:
-    - cron: '0 14 * * 1'   # Monday  → SEO
-    - cron: '0 14 * * 4'   # Thursday → GEO
+    - cron: '0 14 * * 1'   # Monday    → SEO
+    - cron: '0 14 * * 3'   # Wednesday → GEO
+    - cron: '0 14 * * 5'   # Friday    → GEO
 
   # Manual trigger — pick which type to generate
   workflow_dispatch:
@@ -53,6 +55,7 @@ jobs:
           else
             echo "type=geo" >> $GITHUB_OUTPUT
           fi
+          # Schedule: Monday=SEO, Wednesday=GEO, Friday=GEO
 
       - name: Generate post
         env:
