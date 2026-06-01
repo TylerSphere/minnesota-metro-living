@@ -22,17 +22,15 @@ const recentNews = allNews
   description="Explore neighborhoods, real estate insights, and community life across the Minnesota metro. City guides, moving resources, and local news for Edina, Maple Grove, Woodbury, Apple Valley, Hopkins, St. Cloud, and Grand Rapids."
 >
   <!-- Hero -->
-  <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #1e3a5f 0%, #2d6a4f 60%, #1e3a5f 100%);">
-    <div class="absolute inset-0 opacity-10">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-      </svg>
-    </div>
+  <section class="relative overflow-hidden">
+    <!-- Background photo -->
+    <img
+      src="/images/Minnesota.jpg"
+      alt="Minnesota landscape"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <!-- Gradient overlay for text legibility -->
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(30,58,95,0.88) 0%, rgba(45,106,79,0.80) 60%, rgba(30,58,95,0.88) 100%);"></div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
       <span class="inline-block text-xs font-semibold uppercase tracking-widest text-amber-400 mb-4">Minnesota Metro Area</span>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
