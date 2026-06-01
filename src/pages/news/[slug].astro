@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+}).format(post.data.pubDate);
+---
+
+<Layout
+  title={`${post.data.title} | Minnesota Metro Living`}
+  description={post.data.description}
+>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-6">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full text-white" style="background-color: #2d6a4f;">
+          Local News
+        </span>
+        {post.data.city && (
+          <span class="text-xs font-medium text-gray-500">{post.data.city}, MN</span>
+        )}
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #1e3a5f;">{post.data.title}</h1>
+      <p class="text-lg text-gray-600 leading-relaxed mb-4">{post.data.description}</p>
+      <div class="flex items-center gap-3 text-sm text-gray-400 pb-6 border-b border-gray-100">
+        <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+        {post.data.source && (
+          <>
+            <span>·</span>
+            <span class="text-gray-500">Source: {post.data.source}</span>
+          </>
+        )}
+      </div>
+    </div>
+
+    <div class="prose max-w-none">
+      <Content />
+    </div>
+
+    <div class="mt-8">
+      <a href="/news" class="text-sm font-medium hover:text-amber-600 transition-colors" style="color: #1e3a5f;">
+        ← Back to Local News
+      </a>
+    </div>
+  </article>
+</Layout>

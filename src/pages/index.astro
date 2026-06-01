@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CityCard from '../components/CityCard.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const cities = await getCollection('cities');
+const allBlog = await getCollection('blog');
+const allNews = await getCollection('news');
+
+const recentBlog = allBlog
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
+const recentNews = allNews
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+---
+
+<Layout
+  title="Minnesota Metro Living | Your Guide to the Twin Cities Metro Area"
+  description="Explore neighborhoods, real estate insights, and community life across the Minnesota metro. City guides, moving resources, and local news for Edina, Maple Grove, Woodbury, Apple Valley, Hopkins, St. Cloud, and Grand Rapids."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #1e3a5f 0%, #2d6a4f 60%, #1e3a5f 100%);">
+    <div class="absolute inset-0 opacity-10">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <span class="inline-block text-xs font-semibold uppercase tracking-widest text-amber-400 mb-4">Minnesota Metro Area</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+        Find Your Place in<br />
+        <span style="color: #fbbf24;">Minnesota</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Neighborhood guides, local news, and real estate insights for the communities that make Minnesota home. From the lakes of Edina to the streets of St. Cloud.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/cities"
+          class="px-8 py-3 rounded-lg font-semibold text-white transition-colors"
+          style="background-color: #d97706;"
+        >
+          Explore Cities
+        </a>
+        <a
+          href="/blog"
+          class="px-8 py-3 rounded-lg font-semibold bg-white/10 text-white border border-white/30 hover:bg-white/20 transition-colors"
+        >
+          Moving Guides
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cities Grid -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold mb-3" style="color: #1e3a5f;">Explore Metro Cities</h2>
+      <p class="text-gray-600 max-w-xl mx-auto">
+        Detailed neighborhood guides for every city where Pemberton Real Estate has local experts on the ground.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cities.map(city => (
+        <CityCard
+          name={city.data.name}
+          slug={city.id}
+          tagline={city.data.tagline}
+          heroImage={city.data.heroImage}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Moving Guides + Local News side by side -->
+  <section class="border-t border-gray-100" style="background-color: #f8f7f4;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Moving Guides -->
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold" style="color: #1e3a5f;">Moving Guides</h2>
+            <a href="/blog" class="text-sm font-semibold hover:text-amber-600 transition-colors" style="color: #1e3a5f;">All guides →</a>
+          </div>
+          {recentBlog.length > 0 ? (
+            <div class="flex flex-col gap-4">
+              {recentBlog.map(post => (
+                <PostCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  href={`/blog/${post.id}`}
+                  pubDate={post.data.pubDate}
+                  city={post.data.city}
+                  variant="blog"
+                />
+              ))}
+            </div>
+          ) : (
+            <div class="rounded-xl border-2 border-dashed border-gray-200 p-8 text-center text-gray-400">
+              <p class="text-sm">Moving guides coming soon.</p>
+            </div>
+          )}
+        </div>
+
+        <!-- Local News -->
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold" style="color: #1e3a5f;">Local News</h2>
+            <a href="/news" class="text-sm font-semibold hover:text-amber-600 transition-colors" style="color: #1e3a5f;">All news →</a>
+          </div>
+          {recentNews.length > 0 ? (
+            <div class="flex flex-col gap-4">
+              {recentNews.map(post => (
+                <PostCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  href={`/news/${post.id}`}
+                  pubDate={post.data.pubDate}
+                  city={post.data.city}
+                  variant="news"
+                />
+              ))}
+            </div>
+          ) : (
+            <div class="rounded-xl border-2 border-dashed border-gray-200 p-8 text-center text-gray-400">
+              <p class="text-sm">Local news will be published automatically.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pemberton CTA -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="rounded-2xl p-10 text-center" style="background: linear-gradient(135deg, #1e3a5f, #2d6a4f);">
+      <p class="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-3">Curated By</p>
+      <h2 class="text-3xl font-bold text-white mb-4">Pemberton Real Estate</h2>
+      <p class="text-blue-100 max-w-xl mx-auto mb-8 leading-relaxed">
+        This resource is maintained by the agents and staff at Pemberton Real Estate — Minnesota locals who know these communities because they live and work in them.
+      </p>
+      <a
+        href="https://www.pembertonre.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block px-8 py-3 rounded-lg font-semibold text-white transition-colors"
+        style="background-color: #d97706;"
+      >
+        Meet Our Agents →
+      </a>
+    </div>
+  </section>
+</Layout>

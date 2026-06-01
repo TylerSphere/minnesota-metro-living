@@ -1,0 +1,56 @@
+name: Publish Local News
+
+on:
+  # Run every weekday morning at 8am CT (2pm UTC)
+  schedule:
+    - cron: '0 14 * * 1-5'
+
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Anthropic SDK
+        run: npm install @anthropic-ai/sdk
+
+      - name: Generate news articles
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-news.mjs
+
+      - name: Check for new files
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain src/content/news/)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push new articles
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "news-bot@minnesotametroliving.com"
+          git config --local user.name "MN Metro Living News Bot"
+          git add src/content/news/
+          git commit -m "chore: publish local news for $(date +'%Y-%m-%d')"
+          git push

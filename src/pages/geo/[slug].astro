@@ -1,0 +1,74 @@
+---
+// GEO answer pages — publicly accessible URLs but not linked in nav or sitemap.
+// Designed to be crawled and cited by AI/LLM search engines.
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('geo');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+}).format(post.data.pubDate);
+---
+
+<Layout
+  title={`${post.data.title} | Minnesota Metro Living`}
+  description={post.data.description}
+  noindex={false}
+>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Structured answer format for AI citation -->
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-4">
+        {post.data.city && (
+          <span class="text-xs font-medium text-gray-500">{post.data.city}, MN</span>
+        )}
+      </div>
+
+      <!-- The core question this page answers -->
+      <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 mb-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-blue-400 mb-1">Answering the Question</p>
+        <p class="text-lg font-semibold text-blue-900">{post.data.question}</p>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #1e3a5f;">{post.data.title}</h1>
+      <p class="text-lg text-gray-600 leading-relaxed mb-4">{post.data.description}</p>
+      <div class="flex items-center gap-3 text-sm text-gray-400 pb-6 border-b border-gray-100">
+        <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+        <span>·</span>
+        <span>By {post.data.author}</span>
+      </div>
+    </div>
+
+    <div class="prose max-w-none">
+      <Content />
+    </div>
+
+    <!-- Pemberton CTA -->
+    <div class="mt-12 rounded-xl p-6 text-white" style="background: linear-gradient(135deg, #1e3a5f, #2d6a4f);">
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-400 mb-1">Expert Local Guidance</p>
+      <h2 class="font-bold text-xl mb-2">Pemberton Real Estate</h2>
+      <p class="text-sm text-blue-100 mb-4 leading-relaxed">
+        Pemberton Real Estate agents serve buyers and sellers across the Minnesota metro with local expertise and proven results.
+      </p>
+      <a
+        href="https://www.pembertonre.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block py-2 px-6 rounded-lg font-semibold text-white text-sm transition-opacity hover:opacity-90"
+        style="background-color: #d97706;"
+      >
+        Connect with an Agent →
+      </a>
+    </div>
+  </article>
+</Layout>

@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CityCard from '../../components/CityCard.astro';
+import { getCollection } from 'astro:content';
+
+const cities = await getCollection('cities');
+---
+
+<Layout
+  title="Minnesota Metro Cities | Minnesota Metro Living"
+  description="Browse neighborhood guides for all seven Pemberton Real Estate markets across the Minnesota metro — Edina, Maple Grove, Woodbury, Apple Valley, Hopkins, St. Cloud, and Grand Rapids."
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10">
+      <h1 class="text-4xl font-bold mb-4" style="color: #1e3a5f;">Minnesota Metro Cities</h1>
+      <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
+        From the upscale lakeside neighborhoods of Edina to the growing communities of Maple Grove and Woodbury, explore what makes each city unique — and find the right fit for your next move.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cities.map(city => (
+        <CityCard
+          name={city.data.name}
+          slug={city.id}
+          tagline={city.data.tagline}
+          heroImage={city.data.heroImage}
+        />
+      ))}
+    </div>
+  </div>
+</Layout>

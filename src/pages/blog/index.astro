@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const allBlog = await getCollection('blog');
+const posts = allBlog.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<Layout
+  title="Moving Guides | Minnesota Metro Living"
+  description="In-depth guides for people moving to Minnesota's metro cities. Neighborhood overviews, what to expect, school info, and local insight from Pemberton Real Estate agents."
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10">
+      <h1 class="text-4xl font-bold mb-4" style="color: #1e3a5f;">Moving Guides</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        Everything you need to know before making your move to the Minnesota metro — written by locals, informed by Pemberton Real Estate agents who live and work in these communities.
+      </p>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map(post => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            href={`/blog/${post.id}`}
+            pubDate={post.data.pubDate}
+            city={post.data.city}
+            variant="blog"
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="rounded-xl border-2 border-dashed border-gray-200 p-16 text-center text-gray-400">
+        <p class="text-lg font-medium mb-2">Moving guides coming soon</p>
+        <p class="text-sm">Check back weekly as we publish new content.</p>
+      </div>
+    )}
+  </div>
+</Layout>

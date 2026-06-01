@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #1e3a5f;
+  --color-brand-amber: #d97706;
+  --color-brand-green: #2d6a4f;
+  --color-brand-bg: #f8f7f4;
+  --color-brand-text: #1a1a2e;
+  --color-brand-muted: #6b7280;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+}
+
+html {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+/* Prose styles for MDX content */
+.prose h1, .prose h2, .prose h3 {
+  color: var(--color-brand-navy);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  color: #374151;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose ul li {
+  margin-bottom: 0.375rem;
+  line-height: 1.7;
+}
+
+.prose a {
+  color: var(--color-brand-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--color-brand-amber);
+}
+
+.prose strong {
+  color: var(--color-brand-navy);
+  font-weight: 600;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-brand-amber);
+  padding-left: 1rem;
+  font-style: italic;
+  color: #6b7280;
+  margin: 1.5rem 0;
+}

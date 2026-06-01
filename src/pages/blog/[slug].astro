@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+}).format(post.data.pubDate);
+---
+
+<Layout
+  title={`${post.data.title} | Minnesota Metro Living`}
+  description={post.data.description}
+  image={post.data.heroImage}
+>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Meta -->
+    <div class="mb-6">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full text-white" style="background-color: #d97706;">
+          Moving Guide
+        </span>
+        {post.data.city && (
+          <span class="text-xs font-medium text-gray-500">{post.data.city}, MN</span>
+        )}
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #1e3a5f;">{post.data.title}</h1>
+      <p class="text-lg text-gray-600 leading-relaxed mb-4">{post.data.description}</p>
+      <div class="flex items-center gap-3 text-sm text-gray-400 pb-6 border-b border-gray-100">
+        <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+        <span>·</span>
+        <span>By {post.data.author}</span>
+      </div>
+    </div>
+
+    <!-- Hero Image -->
+    {post.data.heroImage && (
+      <img
+        src={post.data.heroImage}
+        alt={post.data.title}
+        class="w-full rounded-xl mb-8 object-cover h-64 sm:h-80"
+      />
+    )}
+
+    <!-- Content -->
+    <div class="prose max-w-none">
+      <Content />
+    </div>
+
+    <!-- Pemberton CTA -->
+    <div class="mt-12 rounded-xl p-6 text-white" style="background: linear-gradient(135deg, #1e3a5f, #2d6a4f);">
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-400 mb-1">Ready to Make a Move?</p>
+      <h2 class="font-bold text-xl mb-2">Talk to a Pemberton Agent</h2>
+      <p class="text-sm text-blue-100 mb-4 leading-relaxed">
+        Pemberton Real Estate has local experts across the Minnesota metro who can help you find the right home in the right neighborhood.
+      </p>
+      <a
+        href="https://www.pembertonre.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block py-2 px-6 rounded-lg font-semibold text-white text-sm transition-opacity hover:opacity-90"
+        style="background-color: #d97706;"
+      >
+        Find Your Agent →
+      </a>
+    </div>
+
+    <!-- Back link -->
+    <div class="mt-8">
+      <a href="/blog" class="text-sm font-medium hover:text-amber-600 transition-colors" style="color: #1e3a5f;">
+        ← Back to Moving Guides
+      </a>
+    </div>
+  </article>
+</Layout>
