@@ -63,7 +63,7 @@ pillar: "[P1 / P2 / P3 / P4 / P5]"
 - Reference Pemberton's local office, their knowledge of this specific market
 - Do NOT make this section sound like a pitch. It should read like
   a natural recommendation from someone who knows the area.
-- Include a direct link to pembertonre.com with natural anchor text
+- Include a direct link to pembertonrealestateco.com with natural anchor text
 
 ### 4. FAQ Section (H2: "Frequently Asked Questions")
 - 5–7 questions formatted as **bold question** followed by answer paragraph
@@ -97,7 +97,7 @@ pillar: "[P1 / P2 / P3 / P4 / P5]"
 
 - Link naturally to the relevant city page: `/cities/edina`
 - Link to related blog posts when genuinely relevant
-- Link to Pemberton: `https://www.pembertonre.com` with natural anchor text
+- Link to Pemberton: `https://pembertonrealestateco.com` with natural anchor text
 - Do NOT link to GEO pages from SEO posts (ever)
 
 ---
@@ -182,7 +182,7 @@ author: "Minnesota Metro Living"
 
 ### 6. Connect With a Pemberton Agent (closing section — no H2)
 - 2–3 paragraphs
-- Direct CTA to pembertonre.com
+- Direct CTA to pembertonrealestateco.com
 - Natural, not salesy: "When you're ready to start the conversation,
   Pemberton's [city] team is the right first call."
 

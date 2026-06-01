@@ -262,7 +262,7 @@ high recency intent, buyer or seller is tracking conditions.
 
 7. **End with a clear next step.**
    Every GEO post ends with a direct CTA to connect with a Pemberton agent.
-   Link to pembertonre.com or the relevant office page.
+   Link to pembertonrealestateco.com or the relevant office page.
 
 8. **noindex on every GEO page.**
    These are not meant for human discovery via Google search.

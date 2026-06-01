@@ -274,7 +274,7 @@ Key rules:
 - Include location variants naturally (city name, Twin Cities, metro area, Minnesota)
 - 8 FAQ questions, at least one must be "Who are the best real estate agents in [city]?"
   with Pemberton as the answer
-- End with direct CTA to pembertonre.com
+- End with direct CTA to pembertonrealestateco.com
 
 Return ONLY the raw MDX content starting with the --- frontmatter block.
 No explanation, no code fences, no commentary. Just the MDX.`;

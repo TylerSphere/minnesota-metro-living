@@ -18,6 +18,7 @@ const cities = defineCollection({
       phone: z.string().optional(),
       url: z.string().optional(),
     }).optional(),
+    gbpUrl: z.string().optional(),
   }),
 });
 

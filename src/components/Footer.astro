@@ -8,6 +8,25 @@ const cities = [
   { name: 'St. Cloud', slug: 'st-cloud' },
   { name: 'Grand Rapids', slug: 'grand-rapids' },
 ];
+
+const socials = [
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/PembertonRE/',
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/pemberton_realestate/',
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`,
+  },
+  {
+    name: 'Zillow',
+    href: 'https://www.zillow.com/profile/pembertons',
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 0L1.608 6.96v2.928l.816-.6V20.16H4.2v-9.696l7.8-5.616 7.8 5.616v9.696h1.776V9.288l.816.6V6.96zm0 8.544l-6.6 4.752V20.16h3.12v-4.656h6.96v4.656h3.12V13.296z"/></svg>`,
+  },
+];
+
 const year = new Date().getFullYear();
 ---
 
@@ -15,17 +34,32 @@ const year = new Date().getFullYear();
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-      <!-- Brand + Pemberton disclosure -->
+      <!-- Brand + Pemberton disclosure + socials -->
       <div>
         <p class="font-bold text-lg mb-1">Minnesota Metro Living</p>
         <p class="text-blue-200 text-sm leading-relaxed">
           Your trusted guide to neighborhoods, real estate, and community life across the Minnesota metro area.
         </p>
+
+        <!-- Social icons -->
+        <div class="flex items-center gap-3 mt-4">
+          {socials.map(s => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Pemberton Real Estate on ${s.name}`}
+              class="text-blue-300 hover:text-amber-400 transition-colors"
+              set:html={s.icon}
+            />
+          ))}
+        </div>
+
         <div class="mt-4 pt-4 border-t border-blue-800">
           <p class="text-xs text-blue-300 leading-relaxed">
             Curated by the team at{' '}
             <a
-              href="https://www.pembertonre.com"
+              href="https://pembertonrealestateco.com"
               target="_blank"
               rel="noopener noreferrer"
               class="text-amber-400 underline hover:text-amber-300"
@@ -54,21 +88,39 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Resources -->
+      <!-- Resources + Pemberton links -->
       <div>
         <p class="font-semibold text-sm uppercase tracking-wider text-blue-300 mb-3">Resources</p>
         <ul class="space-y-1.5">
           <li><a href="/blog" class="text-sm text-blue-100 hover:text-amber-400 transition-colors">Moving Guides</a></li>
           <li><a href="/news" class="text-sm text-blue-100 hover:text-amber-400 transition-colors">Local News</a></li>
           <li><a href="/about" class="text-sm text-blue-100 hover:text-amber-400 transition-colors">About This Site</a></li>
+        </ul>
+
+        <p class="font-semibold text-sm uppercase tracking-wider text-blue-300 mb-3 mt-6">Pemberton Real Estate</p>
+        <ul class="space-y-1.5">
           <li>
-            <a
-              href="https://www.pembertonre.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-sm text-amber-400 hover:text-amber-300 transition-colors font-medium"
-            >
-              Pemberton Real Estate →
+            <a href="https://pembertonrealestateco.com" target="_blank" rel="noopener noreferrer"
+              class="text-sm text-amber-400 hover:text-amber-300 transition-colors font-medium">
+              pembertonrealestateco.com →
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/PembertonRE/" target="_blank" rel="noopener noreferrer"
+              class="text-sm text-blue-100 hover:text-amber-400 transition-colors">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/pemberton_realestate/" target="_blank" rel="noopener noreferrer"
+              class="text-sm text-blue-100 hover:text-amber-400 transition-colors">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://www.zillow.com/profile/pembertons" target="_blank" rel="noopener noreferrer"
+              class="text-sm text-blue-100 hover:text-amber-400 transition-colors">
+              Zillow Profile
             </a>
           </li>
         </ul>
@@ -77,7 +129,7 @@ const year = new Date().getFullYear();
 
     <div class="mt-10 pt-6 border-t border-blue-800 flex flex-col sm:flex-row justify-between items-center gap-2">
       <p class="text-xs text-blue-400">© {year} Minnesota Metro Living. All rights reserved.</p>
-      <p class="text-xs text-blue-400">A resource by <a href="https://www.pembertonre.com" class="underline hover:text-amber-400" target="_blank" rel="noopener noreferrer">Pemberton Real Estate</a></p>
+      <p class="text-xs text-blue-400">A resource by <a href="https://pembertonrealestateco.com" class="underline hover:text-amber-400" target="_blank" rel="noopener noreferrer">Pemberton Real Estate</a></p>
     </div>
   </div>
 </footer>
