@@ -344,10 +344,15 @@ async function main() {
     process.exit(1);
   }
 
-  // Strip any accidental code fences Claude might have added
+  // Strip any preamble or code fences Claude might have added.
+  // The MDX file MUST start with --- on the very first line.
   let mdxContent = textBlock.text.trim();
   if (mdxContent.startsWith('```')) {
-    mdxContent = mdxContent.replace(/^```[a-z]*\n?/, '').replace(/\n?```$/, '');
+    mdxContent = mdxContent.replace(/^```[a-z]*\n?/, '').replace(/\n?```$/, '').trim();
+  }
+  const fmStart = mdxContent.indexOf('---');
+  if (fmStart > 0) {
+    mdxContent = mdxContent.slice(fmStart);
   }
 
   // 4. Save the MDX file

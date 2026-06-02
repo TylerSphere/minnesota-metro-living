@@ -110,7 +110,21 @@ Return ONLY the raw MDX content — no extra explanation, no code fences.`,
     return null;
   }
 
-  return textBlock.text.trim();
+  let mdx = textBlock.text.trim();
+
+  // Strip any preamble Claude added before the frontmatter delimiter.
+  // The MDX file must start with --- on the very first line.
+  const frontmatterStart = mdx.indexOf('---');
+  if (frontmatterStart > 0) {
+    mdx = mdx.slice(frontmatterStart);
+  }
+
+  // Strip accidental code fences
+  if (mdx.startsWith('```')) {
+    mdx = mdx.replace(/^```[a-z]*\n?/, '').replace(/\n?```$/, '');
+  }
+
+  return mdx;
 }
 
 /**
