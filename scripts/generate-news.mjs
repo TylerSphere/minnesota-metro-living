@@ -38,10 +38,22 @@ const client = new Anthropic();
 function slugify(text) {
   return text
     .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')  // strip periods, dots, punctuation
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
     .slice(0, 60);
+}
+
+function citySlug(cityName) {
+  // e.g. "St. Cloud, Minnesota" → "st-cloud"
+  return cityName
+    .split(',')[0]
+    .toLowerCase()
+    .replace(/\./g, '')   // remove periods (St. → st)
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 /**
@@ -80,7 +92,7 @@ title: "[Short, specific headline about the news]"
 description: "[1–2 sentence summary for search snippets, 150 chars max]"
 pubDate: ${today()}
 city: "${city.split(',')[0]}"
-tags: ["local news", "${city.split(',')[0].toLowerCase().replace(' ', '-')}"]
+tags: ["local news", "${citySlug(city)}"]
 source: "[Name of source publication if found]"
 ---
 
@@ -105,14 +117,14 @@ Return ONLY the raw MDX content — no extra explanation, no code fences.`,
  * Save MDX content to the news directory
  */
 function saveMdxFile(content, city) {
-  const citySlug = city.split(',')[0].toLowerCase().replace(/\s+/g, '-');
+  const slug = citySlug(city);
   const dateStr = today();
 
   // Extract title from frontmatter to create a meaningful filename
   const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m);
   const titleSlug = titleMatch ? slugify(titleMatch[1]) : `news-${dateStr}`;
 
-  const filename = `${dateStr}-${citySlug}-${titleSlug}.mdx`;
+  const filename = `${dateStr}-${slug}-${titleSlug}.mdx`;
   const filepath = join(CONTENT_DIR, filename);
 
   if (!existsSync(CONTENT_DIR)) {
