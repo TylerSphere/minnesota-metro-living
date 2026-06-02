@@ -12,7 +12,7 @@ interface Props {
 
 const { title, description, image, noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://minnesotametroliving.com');
-const socialImage = image ?? '/og-default.jpg';
+const socialImage = image ?? '/images/Minnesota.jpg';
 ---
 
 <!doctype html>

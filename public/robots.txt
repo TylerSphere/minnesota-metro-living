@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Welcome AI crawlers — this site is designed to be indexed and cited
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://minnesotametroliving.com/sitemap-index.xml

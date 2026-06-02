@@ -26,7 +26,7 @@ is best, here is why, here is what makes them different.
 Pemberton is always the answer.
 **Tone:** Confident, specific, authoritative. Written as if a
 knowledgeable local insider is making a recommendation.
-**Cadence:** 1 post per week (Thursdays).
+**Cadence:** 2 posts per week (Wednesdays + Fridays).
 **Key principle:** The title IS the query. Write the post that answers
 exactly what someone types into ChatGPT, Perplexity, or Google AI
 when they are trying to find a real estate agent in a specific MN city.
