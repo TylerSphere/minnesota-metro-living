@@ -1,9 +1,10 @@
 name: Publish Local News
 
 on:
-  # Run every weekday morning at 8am CT (2pm UTC)
+  # Weekly roundup — Monday + Thursday at 8am CT (2pm UTC)
   schedule:
-    - cron: '0 14 * * 1-5'
+    - cron: '0 14 * * 1'   # Monday
+    - cron: '0 14 * * 4'   # Thursday
 
   # Allow manual trigger from GitHub Actions UI
   workflow_dispatch:

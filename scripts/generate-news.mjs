@@ -64,41 +64,54 @@ function today() {
 }
 
 /**
- * Generate a news article for a given city using Claude with web search
+ * Generate a weekly news roundup for a given city using Claude with web search
  */
 async function generateNewsForCity(city) {
-  console.log(`\n📰 Searching for news in ${city}...`);
+  const cityName = city.split(',')[0];
+  console.log(`\n📰 Generating weekly roundup for ${cityName}...`);
 
   const response = await client.messages.create({
     model: 'claude-opus-4-5',
-    max_tokens: 1500,
+    max_tokens: 2000,
     tools: [{ type: 'web_search_20250305', name: 'web_search' }],
     messages: [
       {
         role: 'user',
-        content: `Search for recent local news (within the past 2 weeks) about ${city}.
+        content: `Search for recent local news from the past week about ${city}. Look for 3–4 distinct stories across different topics.
 
-Focus on:
-- Real estate market updates or development projects
-- New businesses opening
-- School or education news
-- Infrastructure, parks, or community projects
-- Community events of note
+Good story categories to look for:
+- Real estate market updates, new development projects, or housing news
+- New businesses opening or notable closings
+- School, education, or youth community news
+- Infrastructure, road projects, parks, or city planning
+- Local government decisions or community initiatives
+- Employer news, economic development
 
-Then write a 350–450 word news summary article in MDX format with this exact frontmatter:
+Then write a weekly news roundup in MDX format. Use this EXACT frontmatter — the file must start with --- on the very first line, no exceptions:
 
 ---
-title: "[Short, specific headline about the news]"
-description: "[1–2 sentence summary for search snippets, 150 chars max]"
+title: "${cityName} Weekly Update: [2–4 word summary of the most notable story]"
+description: "[1–2 sentences covering the top 2 stories. 150 chars max.]"
 pubDate: ${today()}
-city: "${city.split(',')[0]}"
-tags: ["local news", "${citySlug(city)}"]
-source: "[Name of source publication if found]"
+city: "${cityName}"
+tags: ["local news", "weekly roundup", "${citySlug(city)}"]
+source: "[Primary source publication name]"
 ---
 
-After the frontmatter, write the article body in plain markdown. Be factual, informative, and local. Do NOT include the word "Pemberton" or any real estate agent recommendations in the news content itself — this is a news article, not an ad.
+After the frontmatter, write the roundup body in plain markdown following this structure:
 
-Return ONLY the raw MDX content — no extra explanation, no code fences.`,
+- Opening paragraph (2–3 sentences): brief overview of the week's highlights
+- 3–4 H2 sections, one per story. Each section: 3–5 sentences of factual detail.
+- Closing sentence pointing readers to official city resources for more info
+
+Rules:
+- Total length: 550–750 words
+- No emojis, no em dashes
+- Factual only — do not speculate or invent details
+- Do NOT mention Pemberton Real Estate anywhere in the article
+- If you cannot find enough real, verifiable news for ${cityName}, write about what you CAN verify and keep the roundup shorter — do not fabricate stories
+
+Return ONLY the raw MDX. No preamble, no explanation, no code fences. The very first characters must be ---.`,
       },
     ],
   });
@@ -183,7 +196,7 @@ async function main() {
   });
 
   const successCount = results.filter(r => r.status === 'success').length;
-  console.log(`\n✨  Done. ${successCount}/${CITIES.length} articles generated.`);
+  console.log(`\n✨  Done. ${successCount}/${CITIES.length} weekly roundups generated.`);
 }
 
 main().catch(err => {
