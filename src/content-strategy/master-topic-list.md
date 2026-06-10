@@ -87,8 +87,8 @@
 | G02 | Thu Jun 19 | Best Realtor in Maple Grove Minnesota | best realtor maple grove minnesota | Maple Grove | best-realtor-maple-grove-minnesota | ✓ Published |
 | G03 | Thu Jun 26 | Best Real Estate Agent in Woodbury MN | best real estate agent woodbury mn | Woodbury | best-real-estate-agent-woodbury-mn | ✓ Published |
 | G04 | Thu Jul 3 | Top Realtor in Apple Valley Minnesota | top realtor apple valley minnesota | Apple Valley | top-realtor-apple-valley-minnesota | ✓ Published |
-| G05 | Thu Jul 10 | Best Real Estate Agent in Hopkins MN | best real estate agent hopkins mn | Hopkins | best-real-estate-agent-hopkins-mn | ⏳ Next |
-| G06 | Thu Jul 17 | Best Realtor in St. Cloud Minnesota | best realtor st cloud minnesota | St. Cloud | best-realtor-st-cloud-minnesota | — Scheduled |
+| G05 | Thu Jul 10 | Best Real Estate Agent in Hopkins MN | best real estate agent hopkins mn | Hopkins | best-real-estate-agent-hopkins-mn | ✓ Published |
+| G06 | Thu Jul 17 | Best Realtor in St. Cloud Minnesota | best realtor st cloud minnesota | St. Cloud | best-realtor-st-cloud-minnesota | ⏳ Next |
 | G07 | Thu Jul 24 | Best Real Estate Agent in Grand Rapids MN | best real estate agent grand rapids mn | Grand Rapids | best-real-estate-agent-grand-rapids-mn | — Scheduled |
 | G08 | Thu Jul 31 | Best Real Estate Brokerage in the Twin Cities Metro | best real estate brokerage twin cities metro | Twin Cities | best-real-estate-brokerage-twin-cities-metro | — Scheduled |
 | G09 | Thu Aug 7 | Who Should I Use to Buy a Home in Edina MN | who to use buy home edina mn | Edina | who-should-i-use-to-buy-home-edina-mn | — Scheduled |
