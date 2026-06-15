@@ -1,10 +1,11 @@
 name: Publish Local News
 
 on:
-  # Weekly roundup — Monday + Thursday at 8am CT (2pm UTC)
+  # Weekly roundup — Monday + Thursday at 9am CT (3pm UTC)
+  # Monday is staggered 1 hour after scheduled-blog.yml to avoid push conflicts
   schedule:
-    - cron: '0 14 * * 1'   # Monday
-    - cron: '0 14 * * 4'   # Thursday
+    - cron: '0 15 * * 1'   # Monday    (3pm UTC / 9am CT)
+    - cron: '0 14 * * 4'   # Thursday  (2pm UTC / 8am CT)
 
   # Allow manual trigger from GitHub Actions UI
   workflow_dispatch:
@@ -54,4 +55,5 @@ jobs:
           git config --local user.name "MN Metro Living News Bot"
           git add src/content/news/
           git commit -m "chore: publish local news for $(date +'%Y-%m-%d')"
+          git pull --rebase origin main
           git push

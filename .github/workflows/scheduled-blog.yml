@@ -78,4 +78,5 @@ jobs:
           git config --local user.name "MN Metro Living Content Bot"
           git add src/content/ src/content-strategy/master-topic-list.md
           git commit -m "content: publish ${{ steps.post_type.outputs.type }} post for $(date +'%Y-%m-%d')"
+          git pull --rebase origin main
           git push
