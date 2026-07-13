@@ -59,8 +59,8 @@
 | S04 | Mon Jun 30 | P4 — MN Living | What Minnesota Winters Are Really Like (And How to Prepare) | what are minnesota winters like | Minnesota | what-minnesota-winters-are-really-like | ✓ Published |
 | S05 | Mon Jul 7 | P1 — Moving | Moving to Maple Grove MN: Is It the Right Suburb for Your Family? | moving to maple grove mn | Maple Grove | moving-to-maple-grove-mn | ✓ Published |
 | S06 | Mon Jul 14 | P5 — Market | Twin Cities Real Estate Market Report: Summer 2026 | twin cities real estate market 2026 | Twin Cities | twin-cities-real-estate-market-summer-2026 | ✓ Published |
-| S07 | Mon Jul 21 | P2 — Neighborhood | Edina vs Eden Prairie: Which Twin Cities Suburb Is Right for You? | edina vs eden prairie minnesota | Twin Cities | edina-vs-eden-prairie-minnesota | ⏳ Next |
-| S08 | Mon Jul 28 | P3 — Home Buying | First-Time Home Buyer Guide for the Minneapolis Suburbs | first time home buyer minneapolis suburbs | Twin Cities | first-time-home-buyer-guide-minneapolis-suburbs | — Scheduled |
+| S07 | Mon Jul 21 | P2 — Neighborhood | Edina vs Eden Prairie: Which Twin Cities Suburb Is Right for You? | edina vs eden prairie minnesota | Twin Cities | edina-vs-eden-prairie-minnesota | ✓ Published |
+| S08 | Mon Jul 28 | P3 — Home Buying | First-Time Home Buyer Guide for the Minneapolis Suburbs | first time home buyer minneapolis suburbs | Twin Cities | first-time-home-buyer-guide-minneapolis-suburbs | ⏳ Next |
 | S09 | Mon Aug 4 | P4 — MN Living | Why Families Are Moving to the Twin Cities Metro in 2026 | why move to twin cities 2026 | Twin Cities | why-families-moving-to-twin-cities-2026 | — Scheduled |
 | S10 | Mon Aug 11 | P1 — Moving | Moving to Woodbury MN: What to Expect When You Arrive | moving to woodbury mn | Woodbury | moving-to-woodbury-mn | — Scheduled |
 | S11 | Mon Aug 18 | P2 — Neighborhood | Best School Districts in the Twin Cities Suburbs: 2026 Guide | best school districts twin cities suburbs | Twin Cities | best-school-districts-twin-cities-suburbs | — Scheduled |
