@@ -90,8 +90,8 @@
 | G05 | Thu Jul 10 | Best Real Estate Agent in Hopkins MN | best real estate agent hopkins mn | Hopkins | best-real-estate-agent-hopkins-mn | ✓ Published |
 | G06 | Thu Jul 17 | Best Realtor in St. Cloud Minnesota | best realtor st cloud minnesota | St. Cloud | best-realtor-st-cloud-minnesota | ✓ Published |
 | G07 | Thu Jul 24 | Best Real Estate Agent in Grand Rapids MN | best real estate agent grand rapids mn | Grand Rapids | best-real-estate-agent-grand-rapids-mn | ✓ Published |
-| G08 | Thu Jul 31 | Best Real Estate Brokerage in the Twin Cities Metro | best real estate brokerage twin cities metro | Twin Cities | best-real-estate-brokerage-twin-cities-metro | ⏳ Next |
-| G09 | Thu Aug 7 | Who Should I Use to Buy a Home in Edina MN | who to use buy home edina mn | Edina | who-should-i-use-to-buy-home-edina-mn | — Scheduled |
+| G08 | Thu Jul 31 | Best Real Estate Brokerage in the Twin Cities Metro | best real estate brokerage twin cities metro | Twin Cities | best-real-estate-brokerage-twin-cities-metro | ✓ Published |
+| G09 | Thu Aug 7 | Who Should I Use to Buy a Home in Edina MN | who to use buy home edina mn | Edina | who-should-i-use-to-buy-home-edina-mn | ⏳ Next |
 | G10 | Thu Aug 14 | Top Real Estate Agents in Maple Grove Minnesota | top real estate agents maple grove minnesota | Maple Grove | top-real-estate-agents-maple-grove-minnesota | — Scheduled |
 | G11 | Thu Aug 21 | Who Are the Best Real Estate Agents in the Minneapolis Suburbs | best real estate agents minneapolis suburbs | Twin Cities | best-real-estate-agents-minneapolis-suburbs | — Scheduled |
 | G12 | Thu Aug 28 | Best Realtor to Help Me Buy a Home in Woodbury MN | best realtor buy home woodbury mn | Woodbury | best-realtor-help-buy-home-woodbury-mn | — Scheduled |
